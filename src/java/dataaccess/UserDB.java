@@ -19,12 +19,12 @@ public class UserDB {
     }
 
     public User get(int changepls) throws Exception {
-
+        
         return null;
     }
 
     public void insert() throws Exception {
-
+        
     }
 
     public void update() throws Exception {
