@@ -211,7 +211,7 @@
                 <h1>Add User</h1>
 
                 <form method="POST" action="user">
-                    
+
                     <input type="text" id="email" name="email" placeholder="Email"
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     <br>
@@ -244,33 +244,29 @@
                 <h1>Manage users</h1>
                 <form method="POST" action="user" float="left">
 
+
                     <table id="table">
                         <tr>
                             <th>Email</th>
-                            <th>Active</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Role</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                        </tr>
-
-                        <c:forEach items="${list}" var="item">
+                        </tr> <c:forEach items="${list}" var="item">
                             <tr>
-
-                                <td> <input type="hidden" name="email" value="${email}"></td>
-                                <td><input type="hidden" name="active" value="${active}"></td>
-                                <td><input type="hidden" name="firstName" value="${firstName}"></td>
-                                <td><input type="hidden" name="lastName" value="${lastName}"></td>
-                                <td><input type="hidden" name="role" value="${role}"></td>
-                                <td><input type="hidden" name="edit" value="${edit}"> 
-                                           <a href="user?action=edit & email=${email}">Edit</a></td>
+                                <td>${item.email}</td>
+                                <td>${item.firstName}</td>
+                                <td>${item.lastName}</td>
+                                <td>${item.role.role_name}</td>
+                                <td><input type="hidden" name="edit" value="${edit}">
+                                    <a href="user?action=edit&email=${item.email}">Edit</a></td>
                                 <td><input type="hidden" name="delete" value="${delete}">
-                                 <a href="user?action=delete & email=${email}">Delete</a></td>
+                                    <a href="user?action=delete">Delete</a></td>
                             </tr>
-                        </c:forEach>
+                        </c:forEach> </table>
 
-                    </table> 
+
 
                 </form>
 
@@ -281,7 +277,8 @@
                 <h1>Edit user</h1>
                 <form float="left" method="POST" action="user" hidden>
 
-                    <input type="text" id="email" name="email">
+                    <input type="text" id="email" name="email"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     <br>
                     <label class="container">Active
                         <input type="checkbox" name="active">
