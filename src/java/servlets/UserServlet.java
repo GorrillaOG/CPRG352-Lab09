@@ -60,10 +60,13 @@ public class UserServlet extends HttpServlet {
             int userRole = Integer.parseInt(request.getParameter("role"));
             
             try {
-                service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
-                doGet(request,response);
+                if (service.get(userEmail) != null) {
+                    service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
+                    doGet(request,response);
+                }       
             }
-            catch (Exception e) {
+            catch(Exception e) {
+                
             }
      
         }
@@ -75,7 +78,7 @@ public class UserServlet extends HttpServlet {
 
 //        request.setAttribute("Users", users);
 //
-//        getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
 
     }
 
