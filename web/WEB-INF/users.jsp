@@ -210,8 +210,7 @@
                 <h1>Add User</h1>
 
                 <form method="POST" action="user">
-
-
+                    
                     <input type="text" id="email" name="email" placeholder="Email">
                     <br>
                     <label class="container">Active
