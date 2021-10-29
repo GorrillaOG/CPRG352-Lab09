@@ -12,6 +12,7 @@
         <link href="/assets/styles/style.css" rel="stylesheet" type="text/css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <title>Lab 7</title>
         <style>
             * h1{
@@ -211,7 +212,8 @@
 
                 <form method="POST" action="user">
                     
-                    <input type="text" id="email" name="email" placeholder="Email">
+                    <input type="text" id="email" name="email" placeholder="Email"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     <br>
                     <label class="container">Active
                         <input type="checkbox" name="active" id="active">
@@ -257,14 +259,14 @@
                             <tr>
 
                                 <td> <input type="hidden" name="email" value="${email}"></td>
-                                <td><input type="hidden" name="email" value="${active}"></td>
-                                <td><input type="hidden" name="email" value="${firstName}"></td>
-                                <td><input type="hidden" name="email" value="${lastName}"></td>
-                                <td><input type="hidden" name="email" value="${role}"></td>
-                                <td><input type="hidden" name="email" value="${edit}"> 
-                                           <a href="user?action=edit">Edit</a></td>
-                                <td><input type="hidden" name="email" value="${delete}">
-                                 <a href="user?action=delete">Delete</a></td>
+                                <td><input type="hidden" name="active" value="${active}"></td>
+                                <td><input type="hidden" name="firstName" value="${firstName}"></td>
+                                <td><input type="hidden" name="lastName" value="${lastName}"></td>
+                                <td><input type="hidden" name="role" value="${role}"></td>
+                                <td><input type="hidden" name="edit" value="${edit}"> 
+                                           <a href="user?action=edit & email=${email}">Edit</a></td>
+                                <td><input type="hidden" name="delete" value="${delete}">
+                                 <a href="user?action=delete & email=${email}">Delete</a></td>
                             </tr>
                         </c:forEach>
 
