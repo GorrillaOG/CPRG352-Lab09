@@ -12,6 +12,7 @@ public class User implements Serializable{
     private Role role;
 
     public User() {
+       
     }
 
     public User(String email, boolean active, String firstName, String lastName, String password, Role role) {
@@ -26,7 +27,7 @@ public class User implements Serializable{
     public String getEmail() {
         return email;
     }
-
+    
     public boolean isActive() {
         return active;
     }

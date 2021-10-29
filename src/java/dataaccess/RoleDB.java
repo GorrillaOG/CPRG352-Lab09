@@ -17,7 +17,7 @@ import models.Role;
  * @author 856622
  */
 public class RoleDB {
-    public List<Role> getAll(String changepls) throws Exception {
+    public List<Role> getAll() throws Exception {
         PreparedStatement statement = null;
         ResultSet results = null;
         
