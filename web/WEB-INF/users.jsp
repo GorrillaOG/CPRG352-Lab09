@@ -231,6 +231,7 @@
                         <option value="2" name="userRole">Company Admin</option>
                     </select>
                     <br>
+                    <input type="hidden" name="action" value="add">
                     <input type="submit" value="Save">
                 </form>
             </div>
@@ -295,6 +296,7 @@
                         <option value="2" name="userRole">Company Admin</option>
                     </select>
                     <br>
+                    <input type="hidden" name="action" value="edit">
                     <input type="submit" value="Save">
                     <input type="reset" value="Cancel">
                 </form>

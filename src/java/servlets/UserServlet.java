@@ -28,17 +28,6 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
         
-        try {
-//            HttpSession session = request.getSession();
-//            String email = (String) session.getAttribute("email");
-
-            ArrayList<User> usersList = service.getAll();
-            //user forEach loop to display  the list
-            request.setAttribute("users", usersList);
-            
-        } catch (Exception ex) {
-            
-        }
         
         //achor tag and href for action 
         //should be inside the for loop as user will select the user
