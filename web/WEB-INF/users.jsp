@@ -215,7 +215,7 @@
                     <input type="text" id="email" name="email" placeholder="Email">
                     <br>
                     <label class="container">Active
-                        <input type="checkbox" name="active">
+                        <input type="checkbox" name="active" id="active">
                         <span class="checkmark"></span>
                     </label>
 
