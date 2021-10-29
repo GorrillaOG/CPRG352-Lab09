@@ -9,11 +9,193 @@
 <html>
    <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="1.css" rel="stylesheet" type="text/css">
+    <link href="/assets/styles/style.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Lab 7</title>
+    <style>
+        * h1{
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+}
 
+
+.col  {
+  float: left;
+ 
+  padding: 10px;
+  border-radius: 0cm;
+  background-color: #666363;
+  padding: 20px;
+  
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid rgb(19, 18, 18);
+    border-radius: 0%;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #430397;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+  /*  border: none;*/
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=reset] {
+    width: 100%;
+    background-color: #430397;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+  /*  border: none;*/
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #0fad0f;
+  }
+  input[type=reset]:hover {
+    background-color: #a04545;
+  }
+ /* div {
+    display: flexbox;
+      float: left;
+    width: 33%;
+    border-radius: 8px;
+    background-color: #666363;
+    padding: 20px;
+  }
+*/
+  /*
+
+
+checkbox
+
+
+
+  */
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+ 
+  .container input:checked ~ .checkmark {
+    background-color: #a04545;
+  }
+  
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } 
+
+  /*
+
+
+
+
+  TABLE
+  */
+
+    
+  
+  #table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    table-layout: auto;
+  width: 120px;
+    
+  }
+  
+  #table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #table tr:nth-child(even){background-color: #da3e3e;}
+  
+  #table tr:hover {background-color: #a04545;}
+  
+  #table
+   th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #848886;
+    color: white;
+  }
+
+    </style>
 </head>
 
 <body>
@@ -106,7 +288,7 @@
             </select>
             <br>
             <input type="submit" value="Save">
-            <input type="reset"" value="Cancel">
+            <input type="reset" value="Cancel">
         </form>
 
     </div>
