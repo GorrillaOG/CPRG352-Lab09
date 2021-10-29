@@ -5,6 +5,7 @@
  */
 package servlets;
 //hellllllo
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -27,8 +28,14 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
-        
-        
+        ArrayList<User> userList = null;
+        try {
+            userList = service.getAll();
+        } catch (Exception e) {
+        }
+
+        request.setAttribute("list", userList);
+
         //achor tag and href for action 
         //should be inside the for loop as user will select the user
         //href="users?action=selected&amp;email=${account.email}"
@@ -38,7 +45,7 @@ public class UserServlet extends HttpServlet {
             User user = service.get(email);
             request.setAttribute("selectedAccount", user);
         }
-        
+
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
         return;
     }
@@ -47,7 +54,7 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
         String action = request.getParameter("action");
-        
+
         if (action.equals("add")) {
             String userEmail = request.getParameter("email");
             boolean userActive = false;
@@ -58,17 +65,16 @@ public class UserServlet extends HttpServlet {
             String userLastname = request.getParameter("lastName");
             String userPassword = request.getParameter("password");
             int userRole = Integer.parseInt(request.getParameter("role"));
-            
+
             try {
                 if (service.get(userEmail) != null) {
                     service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
-                    doGet(request,response);
-                }       
+                    doGet(request, response);
+                }
+            } catch (Exception e) {
+
             }
-            catch(Exception e) {
-                
-            }
-     
+
         }
 //        else if (action.equals("edit")) {
 //            service.update(userEmail, userFirstname, userLastname, userRole);
