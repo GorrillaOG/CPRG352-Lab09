@@ -209,7 +209,7 @@
             <div class="col p-3" >
                 <h1>Add User</h1>
 
-                <form method="POST" action="add">
+                <form method="POST" action="user">
 
 
                     <input type="text" id="email" name="email" placeholder="Email">
@@ -240,7 +240,7 @@
             <div class="col p-3" >
 
                 <h1>Manage users</h1>
-                <form method="POST" action="manageUsers" float="left">
+                <form method="POST" action="user" float="left">
 
                     <table id="table">
                         <tr>
@@ -280,7 +280,7 @@
             <div class="col p-3" >
 
                 <h1>Edit user</h1>
-                <form float="left" method="POST" action="editUsers">
+                <form float="left" method="POST" action="user">
 
                     <input type="text" id="email" name="email">
                     <br>
