@@ -277,7 +277,7 @@
             <div class="col p-3" >
 
                 <h1>Edit user</h1>
-                <form float="left" method="POST" action="user">
+                <form float="left" method="POST" action="user" hidden>
 
                     <input type="text" id="email" name="email">
                     <br>
@@ -291,10 +291,9 @@
                     <input type="text" id="lastName" name="lastName" >
                     <br>
                     <select name="role" id="role" >
-
-                        <option value="System Admin">System Admin</option>
-                        <option value="Regular User">Regular User</option>
-                        <option value="Company Admin">Company Admin</option>
+                        <option  value="1" name="userRole" >System Admin</option>
+                        <option value="2" name="userRole" >Regular User</option>
+                        <option value="2" name="userRole">Company Admin</option>
                     </select>
                     <br>
                     <input type="submit" value="Save">
