@@ -16,6 +16,9 @@
     <style>
         * h1{
   text-align: center;
+    font-family: 'Times New Roman', Times, serif ;
+  font-size: 33px;
+  font-weight: bold;
 }
 * {
   box-sizing: border-box;
@@ -170,6 +173,7 @@ checkbox
     
   
   #table {
+      
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     table-layout: auto;
