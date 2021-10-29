@@ -227,9 +227,9 @@
                     <br>
                     <select name="role" id="role" aria-placeholder="System Admin">
 
-                        <option value="System Admin">System Admin</option>
-                        <option value="Regular User">Regular User</option>
-                        <option value="Company Admin">Company Admin</option>
+                        <option value="1" name="userRole">System Admin</option>
+                        <option value="2" name="userRole">Regular User</option>
+                        <option value="2" name="userRole">Company Admin</option>
                     </select>
                     <br>
                     <input type="submit" value="Save">
@@ -261,15 +261,12 @@
                                 <td><input type="hidden" name="email" value="${firstName}"></td>
                                 <td><input type="hidden" name="email" value="${lastName}"></td>
                                 <td><input type="hidden" name="email" value="${role}"></td>
-                                <td><input type="hidden" name="email" value="${edit}"></td>
-                                <td><input type="hidden" name="email" value="${delete}"></td>
-                           
-
+                                <td><input type="hidden" name="email" value="${edit}"> 
+                                           <a href="user?action=edit">Edit</a></td>
+                                <td><input type="hidden" name="email" value="${delete}">
+                                 <a href="user?action=delete">Delete</a></td>
                             </tr>
                         </c:forEach>
-                        <tr>
-
-                        </tr>
 
                     </table> 
 
