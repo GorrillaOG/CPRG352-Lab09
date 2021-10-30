@@ -98,13 +98,6 @@ public class UserServlet extends HttpServlet {
             
             try{
                 service.update(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
-                System.out.println(userEmail);
-                System.out.println(userActive);
-                System.out.println(userFirstname);
-                System.out.println(userLastname);
-                System.out.println(userPassword);
-                System.out.println(userRole);
-                
                 doGet(request, response);
             } 
             catch (Exception e) {
@@ -114,7 +107,6 @@ public class UserServlet extends HttpServlet {
         }
         else if (action.equals("delete")) {
             String mail = request.getParameter("email");
-            System.out.println(mail);
             try {
                 service.delete(mail);
             }
