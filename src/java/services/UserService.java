@@ -63,6 +63,6 @@ public class UserService {
     public void delete(String email) throws Exception{
         User user = get(email);
         UserDB userdb = new UserDB();
-        userdb.update(user);
+        userdb.delete(user);
     }
 }

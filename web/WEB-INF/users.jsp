@@ -212,29 +212,29 @@
 
                 <form method="POST" action="user">
 
-                    <input type="text" id="email" name="email" placeholder="Email"
+                    <input type="text" name="email" placeholder="Email"
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     <br>
                     <label class="container">Active
-                        <input type="checkbox" name="active" id="active">
+                        <input type="checkbox" name="active">
                         <span class="checkmark"></span>
                     </label>
 
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name">
+                    <input type="text" name="firstName" placeholder="First Name">
                     <br>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+                    <input type="text" name="lastName" placeholder="Last Name">
                     <br>
-                    <input type="text" id="password" name="password" placeholder="Password">
+                    <input type="text" name="password" placeholder="Password">
                     <br>
-                    <select name="role" id="role" aria-placeholder="System Admin">
+                    <select name="role" placeholder="System Admin">
 
                         <option value="1" name="userRole">System Admin</option>
                         <option value="2" name="userRole">Regular User</option>
-                        <option value="2" name="userRole">Company Admin</option>
+                        <option value="3" name="userRole">Company Admin</option>
                     </select>
                     <br>
                     <input type="hidden" name="action" value="add">
-                    <input type="submit" value="Save">
+                    <input type="submit" value="save">
                 </form>
             </div>
 
@@ -242,9 +242,6 @@
             <div class="col p-3" >
 
                 <h1>Manage users</h1>
-                <form method="POST" action="user" float="left">
-
-
                     <table id="table">
                         <tr>
                             <th>Email</th>
@@ -253,16 +250,27 @@
                             <th>Role</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                        </tr> <c:forEach items="${list}" var="item">
+                        </tr> 
+                        <c:forEach items="${list}" var="item">
                             <tr>
                                 <td>${item.email}</td>
                                 <td>${item.firstName}</td>
                                 <td>${item.lastName}</td>
                                 <td>${item.role.role_name}</td>
-                                <td><input type="hidden" name="edit" value="${edit}">
-                                    <a href="user?action=edit&email=${item.email}">Edit</a></td>
-                                <td><input type="hidden" name="delete" value="${delete}">
-                                    <a href="user?action=delete&email=${item.email}">Delete</a></td>
+                                <form method="POST" action="user" float="left">
+                                <td>
+                                    <input type="hidden" name="email" value="${item.email}">
+                                    <input type="hidden" name="action" value="fillEdit">                                     
+                                    <input type="submit" value="Edit">
+                                </td>
+                                </form>
+                                <form method="POST" action="user" float="left">
+                                <td>
+                                    <input type="hidden" name="email" value="${item.email}">
+                                    <input type="hidden" name="action" value="delete">                                     
+                                    <input type="submit" value="Delete">
+                                </td>
+                                </form>
                             </tr>
                         </c:forEach> </table>
 
@@ -274,32 +282,33 @@
 
             <div class="col p-3" >
 
-                <h1>Edit user</h1>
-                <form float="left" method="POST" action="user" hidden>
+                <h1>Edit user</h1>               
+                <form float="left" method="POST" action="user">
 
-                    <input type="text" id="email" name="email"
+                    <input type="text" id="eml" name="email_edit" value="${email_edit}"
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     <br>
                     <label class="container">Active
-                        <input type="checkbox" name="active">
+                        <input type="checkbox" name="active_edit">
                         <span class="checkmark"></span>
                     </label>
 
-                    <input type="text" id="firstName" name="firstName" >
+                    <input type="text" id="fname" name="fname_edit" value="${fname_edit}" >
                     <br>
-                    <input type="text" id="lastName" name="lastName" >
+                    <input type="text" id="lname" name="lname_edit" value="${lname_edit}" >
                     <br>
-                    <select name="role" id="role" >
-                        <option  value="1" name="userRole" >System Admin</option>
-                        <option value="2" name="userRole" >Regular User</option>
+                    <input type="password" id="pass" name="password_edit" value="${password_edit}">
+                    <br>
+                    <select name="role_edit" id="role" aria-placeholder="user.role.role_name">
+                        <option value="1" name="userRole">System Admin</option>
+                        <option value="2" name="userRole">Regular User</option>
                         <option value="2" name="userRole">Company Admin</option>
                     </select>
-                    <br>
+                    <br>                    
                     <input type="hidden" name="action" value="edit">
                     <input type="submit" value="Save">
                     <input type="reset" value="Cancel">
-                </form>
-
+                </form>                
             </div>
         </div>
 

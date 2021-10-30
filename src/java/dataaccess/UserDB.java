@@ -67,13 +67,16 @@ public class UserDB {
             con = pool.getConnection();
         }
         
-        String query = "SELECT * FROM user WHERE email = ?";
+        String query = "SELECT email, active, first_name, last_name, password, role, role_name " +
+                       "FROM user, role " + 
+                       "WHERE user.role = role.role_id AND user.email = ?";
         
         try {      
             statement = con.prepareStatement(query);
             statement.setString(1, targetEmail);
             results = statement.executeQuery();
             
+            results.next();
             String email = results.getString(1);
             boolean active = results.getBoolean(2);
             String firstname = results.getString(3);

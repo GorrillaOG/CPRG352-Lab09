@@ -31,6 +31,7 @@ public class UserServlet extends HttpServlet {
         ArrayList<User> userList = null;
         try {
             userList = service.getAll();
+            request.setAttribute("list", userList);
 
         } catch (Exception e) {
         }
@@ -57,10 +58,8 @@ public class UserServlet extends HttpServlet {
             int userRole = Integer.parseInt(request.getParameter("role"));
 
             try {
-                if (service.get(userEmail) != null) {
-                    service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
-                    doGet(request, response);
-                }
+                service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
+                doGet(request, response);
             } 
             catch(Exception e) {
                 //If the user being added has an email that is already in the database
@@ -91,14 +90,21 @@ public class UserServlet extends HttpServlet {
             String userFirstname = request.getParameter("fname_edit");
             String userLastname = request.getParameter("lname_edit");
             String userPassword = request.getParameter("password_edit");
-            int userRole = Integer.parseInt(request.getParameter("role"));
+            int userRole = Integer.parseInt(request.getParameter("role_edit"));
             boolean userActive = false;
             if (request.getParameter("active_edit") != null) {
                 userActive = true;
             }
-          
+            
             try{
                 service.update(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
+                System.out.println(userEmail);
+                System.out.println(userActive);
+                System.out.println(userFirstname);
+                System.out.println(userLastname);
+                System.out.println(userPassword);
+                System.out.println(userRole);
+                
                 doGet(request, response);
             } 
             catch (Exception e) {
