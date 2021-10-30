@@ -31,19 +31,8 @@ public class UserServlet extends HttpServlet {
         ArrayList<User> userList = null;
         try {
             userList = service.getAll();
+
         } catch (Exception e) {
-        }
-
-        request.setAttribute("list", userList);
-
-        //achor tag and href for action 
-        //should be inside the for loop as user will select the user
-        //href="users?action=selected&amp;email=${account.email}"
-        String action = request.getParameter("action");
-        if (action != null && action.equals("selected")) {
-            String email = request.getParameter("email");
-            User user = service.get(email);
-            request.setAttribute("selectedAccount", user);
         }
 
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
@@ -54,8 +43,9 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
         String action = request.getParameter("action");
-
+       
         if (action.equals("add")) {
+           
             String userEmail = request.getParameter("email");
             boolean userActive = false;
             if (request.getParameter("active") != null) {
@@ -71,21 +61,63 @@ public class UserServlet extends HttpServlet {
                     service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
                     doGet(request, response);
                 }
-            } catch (Exception e) {
+            } 
+            catch(Exception e) {
+                //If the user being added has an email that is already in the database
+                System.out.println(e.toString());
+                doGet(request,response);
+            }
+     
 
+        }
+        else if (action.equals("fillEdit")) {
+            String mail = request.getParameter("email");
+            try{
+                User user = service.get(mail); 
+                
+                request.setAttribute("email_edit", user.getEmail());  
+                request.setAttribute("fname_edit", user.getFirstName());   
+                request.setAttribute("lname_edit", user.getLastName());
+                request.setAttribute("password_edit", user.getPassword());
+            } 
+            catch (Exception e) {
+                System.out.println(e.toString());
+            }
+            doGet(request, response);
+            return;
+        }
+        else if (action.equals("edit")) {
+            String userEmail = request.getParameter("email_edit");
+            String userFirstname = request.getParameter("fname_edit");
+            String userLastname = request.getParameter("lname_edit");
+            String userPassword = request.getParameter("password_edit");
+            int userRole = Integer.parseInt(request.getParameter("role"));
+            boolean userActive = false;
+            if (request.getParameter("active_edit") != null) {
+                userActive = true;
+            }
+          
+            try{
+                service.update(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
+                doGet(request, response);
+            } 
+            catch (Exception e) {
+                System.out.print(e.toString());
             }
 
         }
-//        else if (action.equals("edit")) {
-//            service.update(userEmail, userFirstname, userLastname, userRole);
-//        } else if (action.equals("delete")) {
-//            service.delete(email);
-//        }
-
-//        request.setAttribute("Users", users);
-//
+        else if (action.equals("delete")) {
+            String mail = request.getParameter("email");
+            System.out.println(mail);
+            try {
+                service.delete(mail);
+            }
+            catch (Exception e){
+                System.out.println(e.toString()); 
+            }
+            doGet(request,response);
+        }
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
-
     }
 
 }
