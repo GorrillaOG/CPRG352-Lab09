@@ -1,38 +1,31 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Oct 29, 2021, 12:04:41 AM
-    Author     : 504785
-*/
 
 * h1{
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif ;
-  font-size: larger;
+    text-align: center;
+    /*font-family: 'Times New Roman', Times, serif ;*/
+    font-family: "Georgia", serif;
+    font-size: 33px;
+    font-weight: bold;
 }
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
 .col  {
-  float: left;
- 
-  padding: 10px;
-  border-radius: 0cm;
-  background-color: #666363;
-  padding: 20px;
-  
+    float: left;
+
+    padding: 10px;
+    border-radius: 0cm;
+    background-color: #666363;
+    padding: 20px;
+
 }
 
 
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 input[type=text], select {
@@ -43,52 +36,52 @@ input[type=text], select {
     border: 2px solid rgb(19, 18, 18);
     border-radius: 0%;
     box-sizing: border-box;
-  }
-  
-  input[type=submit] {
+}
+
+input[type=submit] {
     width: 100%;
     background-color: #430397;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
-  /*  border: none;*/
+    /*  border: none;*/
     border-radius: 4px;
     cursor: pointer;
-  }
-  input[type=reset] {
+}
+input[type=reset] {
     width: 100%;
     background-color: #430397;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
-  /*  border: none;*/
+    /*  border: none;*/
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
+}
+
+input[type=submit]:hover {
     background-color: #0fad0f;
-  }
-  input[type=reset]:hover {
+}
+input[type=reset]:hover {
     background-color: #a04545;
-  }
- /* div {
-    display: flexbox;
-      float: left;
-    width: 33%;
-    border-radius: 8px;
-    background-color: #666363;
-    padding: 20px;
-  }
+}
+/* div {
+   display: flexbox;
+     float: left;
+   width: 33%;
+   border-radius: 8px;
+   background-color: #666363;
+   padding: 20px;
+ }
 */
-  /*
+/*
 
 
 checkbox
 
 
 
-  */
+*/
 
 .container {
     display: block;
@@ -101,49 +94,49 @@ checkbox
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  .container input {
+}
+
+.container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  
-  .checkmark {
+}
+
+
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
     height: 25px;
     width: 25px;
     background-color: #eee;
-  }
-  
+}
 
-  .container:hover input ~ .checkmark {
+
+.container:hover input ~ .checkmark {
     background-color: #ccc;
-  }
-  
- 
-  .container input:checked ~ .checkmark {
+}
+
+
+.container input:checked ~ .checkmark {
     background-color: #a04545;
-  }
-  
-  
-  .checkmark:after {
+}
+
+
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
+}
 
-  .container input:checked ~ .checkmark:after {
+.container input:checked ~ .checkmark:after {
     display: block;
-  }
-  
+}
 
-  .container .checkmark:after {
+
+.container .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
@@ -153,40 +146,37 @@ checkbox
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  } 
+} 
 
-  /*
+#table {
 
-
-
-
-  TABLE
-  */
-
-    
-  
-  #table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     table-layout: auto;
-  width: 120px;
-    
-  }
-  
-  #table td, #table th {
+    width: 120px;
+
+}
+
+#table td, #table th {
     border: 1px solid #ddd;
     padding: 8px;
-  }
-  
-  #table tr:nth-child(even){background-color: #da3e3e;}
-  
-  #table tr:hover {background-color: #a04545;}
-  
-  #table
-   th {
+}
+
+#table tr:nth-child(even){background-color: #da3e3e;}
+
+#table tr:hover {background-color: #a04545;}
+
+#table
+th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #848886;
     color: white;
-  }
+}
+
+p{
+text-align: center;
+font-size: larger;
+color: #da3e3e;
+}

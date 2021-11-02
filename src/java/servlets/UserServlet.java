@@ -58,14 +58,17 @@ public class UserServlet extends HttpServlet {
             int userRole = Integer.parseInt(request.getParameter("role"));
 
             try {
-                service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
+                service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);                
+                request.setAttribute("message", "User successfully added to database");
                 doGet(request, response);
             } 
             catch(Exception e) {
                 //If the user being added has an email that is already in the database
+                request.setAttribute("message", "Email already exist in database");
                 System.out.println(e.toString());
                 doGet(request,response);
             }
+            
      
 
         }
@@ -98,6 +101,7 @@ public class UserServlet extends HttpServlet {
             
             try{
                 service.update(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
+                request.setAttribute("messageEdit", "Edit was successful");
                 doGet(request, response);
             } 
             catch (Exception e) {
@@ -113,6 +117,7 @@ public class UserServlet extends HttpServlet {
             catch (Exception e){
                 System.out.println(e.toString()); 
             }
+            request.setAttribute("messageDelete", "User successfully deleted from database");
             doGet(request,response);
         }
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
