@@ -1,8 +1,3 @@
-<%-- 
-    Document   : users
-    Created on : Oct 20, 2021, 1:56:42 PM
-    Author     : 856622
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
