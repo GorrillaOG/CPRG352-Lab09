@@ -20,9 +20,9 @@ CREATE TABLE IF NOT EXISTS `userdb`.`user` (
         REFERENCES `userdb`.`role` (`role_id`));
 
 
-INSERT INTO `role` VALUES (1, 'system admin');
-INSERT INTO `role` VALUES (2, 'regular user');
-INSERT INTO `role` VALUES (3, 'company admin');
+INSERT INTO `role` VALUES (1, 'System Admin');
+INSERT INTO `role` VALUES (2, 'User');
+INSERT INTO `role` VALUES (3, 'Company Admin');
 
 INSERT INTO `user` (`email`,`active`,`first_name`,`last_name`,`password`,`role`)
         VALUES ('cprg352+admin@gmail.com', true, 'Admin','Admin', 'password', 1);

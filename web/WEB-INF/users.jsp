@@ -47,7 +47,7 @@
                     <input type="hidden" name="action" value="add">
                     <input type="submit" value="Save">
                     <p>${message}</p>
-                    
+
                 </form>
             </div>
 
@@ -56,37 +56,41 @@
 
                 <h1>Manage users</h1>
                 <p>${messageDelete}</p>
-                    <table id="table">
+                <table id="table">
+                    <tr>
+                        <th>Email</th>
+                        <th>Active</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Role</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr> 
+                    <c:forEach items="${list}" var="item">
                         <tr>
-                            <th>Email</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Role</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr> 
-                        <c:forEach items="${list}" var="item">
-                            <tr>
-                                <td>${item.email}</td>
-                                <td>${item.firstName}</td>
-                                <td>${item.lastName}</td>
-                                <td>${item.role.role_name}</td>
-                                <form method="POST" action="user" float="left">
-                                <td>
-                                    <input type="hidden" name="email" value="${item.email}">
-                                    <input type="hidden" name="action" value="fillEdit">                                     
-                                    <input type="submit" value="Edit">
-                                </td>
-                                </form>
-                                <form method="POST" action="user" float="left">
-                                <td>
-                                    <input type="hidden" name="email" value="${item.email}">
-                                    <input type="hidden" name="action" value="delete">                                     
-                                    <input type="submit" value="Delete">
-                                </td>
-                                </form>
-                            </tr>
-                        </c:forEach> </table>
+                            <td>${item.email}</td>
+                            <td><c:if test = "${item.active}">
+                                    ${activeMessage}
+                                </c:if></td>
+                            <td>${item.firstName}</td>
+                            <td>${item.lastName}</td>
+                            <td>${item.role.role_name}</td>
+                        <form method="POST" action="user" float="left">
+                            <td>
+                                <input type="hidden" name="email" value="${item.email}">
+                                <input type="hidden" name="action" value="fillEdit">                                     
+                                <input type="submit" value="Edit">
+                            </td>
+                        </form>
+                        <form method="POST" action="user" float="left">
+                            <td>
+                                <input type="hidden" name="email" value="${item.email}">
+                                <input type="hidden" name="action" value="delete">                                     
+                                <input type="submit" value="Delete">
+                            </td>
+                        </form>
+                        </tr>
+                    </c:forEach> </table>
 
 
 
@@ -103,7 +107,7 @@
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" readonly>
                     <br>
                     <label class="container"> Active
-                        <input type="checkbox" name="active_edit">
+                        <input type="checkbox" name="active_edit" value="${active_edit}">
                         <span class="checkmark"></span>
                     </label>
 
@@ -116,7 +120,7 @@
                     <select name="role_edit" id="role" aria-placeholder="user.role.role_name">
                         <option value="1" name="userRole">System Admin</option>
                         <option value="2" name="userRole">Regular User</option>
-                        <option value="2" name="userRole">Company Admin</option>
+                        <option value="3" name="userRole">Company Admin</option>
                     </select>
                     <br>                    
                     <input type="hidden" name="action" value="edit">

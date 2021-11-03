@@ -28,6 +28,7 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
+        request.setAttribute("activeMessage", "Active");
         ArrayList<User> userList = null;
         try {
             userList = service.getAll();
@@ -44,6 +45,7 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
         String action = request.getParameter("action");
+        //request.setAttribute("activeMessage", "Active");
        
         if (action.equals("add")) {
            
@@ -56,6 +58,7 @@ public class UserServlet extends HttpServlet {
             String userLastname = request.getParameter("lastName");
             String userPassword = request.getParameter("password");
             int userRole = Integer.parseInt(request.getParameter("role"));
+            
 
             try {
                 service.insert(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);                
@@ -102,6 +105,7 @@ public class UserServlet extends HttpServlet {
             try{
                 service.update(userEmail, userActive, userFirstname, userLastname, userPassword, userRole);
                 request.setAttribute("messageEdit", "Edit was successful");
+                
                 doGet(request, response);
             } 
             catch (Exception e) {
