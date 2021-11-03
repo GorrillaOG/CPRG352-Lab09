@@ -16,7 +16,7 @@
         <title>Lab 7</title>
     </head>
 
-    <body>
+    <body  style="background-color:darkgray;">
         <div class="row">
             <div class="col p-3" >
                 <h1>Add User</h1>
@@ -26,16 +26,16 @@
                     <input type="text" name="email" placeholder="Email"
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                     <br>
-                    <label class="container">Active
+                    <label class="container"> Active
                         <input type="checkbox" name="active">
                         <span class="checkmark"></span>
                     </label>
 
-                    <input type="text" name="firstName" placeholder="First Name">
+                    <input type="text" name="firstName" placeholder="First Name" required>
                     <br>
-                    <input type="text" name="lastName" placeholder="Last Name">
+                    <input type="text" name="lastName" placeholder="Last Name" required>
                     <br>
-                    <input type="text" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" required>
                     <br>
                     <select name="role" >
 
@@ -102,7 +102,7 @@
                     <input type="text" id="eml" name="email_edit" value="${email_edit}"
                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" readonly>
                     <br>
-                    <label class="container">Active
+                    <label class="container"> Active
                         <input type="checkbox" name="active_edit">
                         <span class="checkmark"></span>
                     </label>
@@ -111,7 +111,7 @@
                     <br>
                     <input type="text" id="lname" name="lname_edit" value="${lname_edit}" >
                     <br>
-                    <input type="text" id="pass" name="password_edit" value="${password_edit}">
+                    <input type="password" id="pass" name="password_edit" value="${password_edit}">
                     <br>
                     <select name="role_edit" id="role" aria-placeholder="user.role.role_name">
                         <option value="1" name="userRole">System Admin</option>
