@@ -69,7 +69,7 @@
                                 </c:if></td>
                             <td>${item.firstName}</td>
                             <td>${item.lastName}</td>
-                            <td>${item.role.role_name}</td>
+                            <td>${item.role.roleName}</td>
                         <form method="POST" action="user" float="left">
                             <td>
                                 <input type="hidden" name="email" value="${item.email}">

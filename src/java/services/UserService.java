@@ -8,6 +8,7 @@ package services;
 import dataaccess.RoleDB;
 import dataaccess.UserDB;
 import java.util.ArrayList;
+import java.util.List;
 import models.Role;
 import models.User;
 
@@ -22,40 +23,42 @@ public class UserService {
         return user;
     }
     
-    public ArrayList<User> getAll() throws Exception{
+    public List<User> getAll() throws Exception{
         UserDB userdb = new UserDB();
-        ArrayList<User> users = userdb.getAll();
+        List<User> users = userdb.getAll();
         return users;
     }
     
-    public void insert(String email, Boolean isActive, String firstName, String lastName, String password, int roleId) throws Exception{
+    public void insert(String email, Boolean active, String firstName, String lastName, String password, int roleId) throws Exception{
         RoleService rs = new RoleService();
-        ArrayList<Role> roles = rs.getAll();
+        List<Role> roles = rs.getAll();
         
         Role role = null;
         for(Role r : roles){
-            if(r.getRole_id() == roleId){
+            if(r.getRoleId() == roleId){
                 role = r;
             }                
         }
         
-        User newUser = new User (email, isActive, firstName, lastName, password, role);
+        User newUser = new User (email, active, firstName, lastName, password);
+        newUser.setRole(role);
         UserDB userdb = new UserDB();
         userdb.insert(newUser);        
     }
      
-    public void update(String email, Boolean isActive, String firstName, String lastName, String password, int roleId) throws Exception{
+    public void update(String email, Boolean active, String firstName, String lastName, String password, int roleId) throws Exception{
         RoleService rs = new RoleService();
-        ArrayList<Role> roles = rs.getAll();
+        List<Role> roles = rs.getAll();
         
         Role role = null;
         for(Role r : roles){
-            if(r.getRole_id() == roleId){
+            if(roleId == r.getRoleId()){
                 role = r;
             }                
         }
         
-        User newUser = new User (email, isActive, firstName, lastName, password, role);
+        User newUser = new User (email, active, firstName, lastName, password);
+        newUser.setRole(role);
         UserDB userdb = new UserDB();
         userdb.update(newUser);        
     }

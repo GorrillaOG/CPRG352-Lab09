@@ -42,7 +42,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=password], select {
+input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -52,7 +52,7 @@ input[type=password], select {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=submit]{
     width: 100%;
     background-color: #430397;
     color: white;
@@ -61,8 +61,11 @@ input[type=submit] {
     /*  border: none;*/
     border-radius: 4px;
     cursor: pointer;
+    
 }
-input[type=reset] {
+
+
+input[type=reset]{
     width: 100%;
     background-color: #430397;
     color: white;
@@ -73,12 +76,18 @@ input[type=reset] {
     cursor: pointer;
 }
 
+
+
+
 input[type=submit]:hover {
     background-color: #0fad0f;
 }
 input[type=reset]:hover {
     background-color: #a04545;
 }
+
+
+
 /*div {
    display: flexbox;
      float: left;

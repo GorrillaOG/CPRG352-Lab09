@@ -29,7 +29,7 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService service = new UserService();
         request.setAttribute("activeMessage", "Active");
-        ArrayList<User> userList = null;
+        List<User> userList = null;
         try {
             userList = service.getAll();
             request.setAttribute("list", userList);
